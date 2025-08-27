@@ -53,16 +53,47 @@
     <!-- Collaborators Section -->
     <section class="collaborators" aria-labelledby="collab-title">
         <div class="container">
-            <h3 id="collab-title" class="heading-h3" style="margin:0 0 16px;"></h3>
-            <ul class="collab-list">
-                <li class="collab-item"><img src="assets/Images/Emirates.png" alt="Partner 1" class="collab-logo"></li>
-                <li class="collab-item"><img src="assets/Images/Garuda Indoensia.png" alt="Partner 2" class="collab-logo"></li>
-                <li class="collab-item"><img src="assets/Images/Haramain.png" alt="Partner 3" class="collab-logo"></li>
-                <li class="collab-item"><img src="assets/Images/Qatar.png" alt="Partner 4" class="collab-logo"></li>
-                <li class="collab-item"><img src="assets/Images/Saudia.png" alt="Partner 5" class="collab-logo"></li>
-            </ul>
+            <div class="collab-marquee-wrapper">
+                <ul class="collab-list">
+                    <li class="collab-item"><img src="assets/Images/Emirates.png" alt="Emirates Airlines" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Garuda Indoensia.png" alt="Garuda Indonesia" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Haramain.png" alt="Haramain High Speed Railway" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Qatar.png" alt="Qatar Airways" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Saudia.png" alt="Saudia Airlines" class="collab-logo"></li>
+                    <!-- Duplicate logos for seamless loop -->
+                    <li class="collab-item"><img src="assets/Images/Emirates.png" alt="Emirates Airlines" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Garuda Indoensia.png" alt="Garuda Indonesia" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Haramain.png" alt="Haramain High Speed Railway" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Qatar.png" alt="Qatar Airways" class="collab-logo"></li>
+                    <li class="collab-item"><img src="assets/Images/Saudia.png" alt="Saudia Airlines" class="collab-logo"></li>
+                </ul>
+            </div>
         </div>
     </section>
+    <script>
+    // Simple marquee effect for collaborators section
+    document.addEventListener('DOMContentLoaded', function() {
+        const marquee = document.querySelector('.collab-marquee');
+        if (!marquee) return;
+
+        // Duplicate the list for seamless looping
+        marquee.innerHTML += marquee.innerHTML;
+
+        let speed = 1; // px per frame
+        let pos = 0;
+        const resetAt = marquee.scrollWidth / 2;
+
+        function animate() {
+            pos -= speed;
+            if (Math.abs(pos) >= resetAt) {
+                pos = 0;
+            }
+            marquee.style.transform = `translateX(${pos}px)`;
+            requestAnimationFrame(animate);
+        }
+        animate();
+    });
+    </script>
     <!-- End Collaborators Section -->
 
     <!-- Paket Umroh Section -->
@@ -402,18 +433,18 @@
     
     <!-- Gallery Section -->
     <section id="galeri" class="gallery" aria-labelledby="gallery-title">
-        <div class="container">
+        <div class="container" style="padding: 0px 0px 100px;">
             <header class="gallery__header">
                 <h2 id="gallery-title" class="heading-h1" style="margin:0;">Galeri Foto Kegiatan</h2>
                 <p class="body-large" style="color:#334155; margin-top:8px;">Kami memberikan kenyamanan bagi pelanggan kami, dengan berbagai fasilitas yang kami berikan</p>
             </header>
             <ul class="gallery-grid">
-                <li class="gallery-item gallery-item--featured"><img src="assets/Images/Image Hero.jpg" alt="Galeri 1" class="gallery-img"></li>
-                <li class="gallery-item"><img src="assets/Images/Paket Umroh/Image.jpg" alt="Galeri 2" class="gallery-img"></li>
-                <li class="gallery-item"><img src="assets/Images/Paket Umroh/Umroh + Malaysia.jpg" alt="Galeri 3" class="gallery-img"></li>
-                <li class="gallery-item"><img src="assets/Images/Paket Umroh/Umroh + Hainan.jpg" alt="Galeri 4" class="gallery-img"></li>
-                <li class="gallery-item"><img src="assets/Images/Paket Umroh/Umroh Only.jpg" alt="Galeri 5" class="gallery-img"></li>
-            </ul>
+                <li class="gallery-item gallery-item--featured"><img src="assets/Images/Gallery/Image1.jpg" alt="Galeri 1" class="gallery-img"></li>
+                <li class="gallery-item"><img src="assets/Images/Gallery/Image2.jpg" alt="Galeri 2" class="gallery-img"></li>
+                <li class="gallery-item"><img src="assets/Images/Gallery/Image3.jpg" alt="Galeri 3" class="gallery-img"></li>
+                <li class="gallery-item"><img src="assets/Images/Gallery/Image4.jpg" alt="Galeri 4" class="gallery-img"></li>
+                <li class="gallery-item"><img src="assets/Images/Gallery/Image5.jpg" alt="Galeri 5" class="gallery-img"></li>
+            </ul> 
         </div>
     </section>
     <!-- End Gallery Section -->

@@ -365,25 +365,36 @@ body, p {
 }
 
 /* Collaborators */
-.collaborators { padding: 44px 0 44px; }
+.collaborators { padding: 0px 0 0px; }
+
+.collab-marquee-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
 
 .collab-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    display: flex;
+    gap: 40px;
     align-items: center;
-    justify-items: center;
-    gap: 24px 32px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 30s linear infinite;
 }
 
-@media (min-width: 700px) {
-    .collab-list { grid-template-columns: repeat(3, minmax(140px, 1fr)); }
+/* Duplicate logos for seamless loop */
+.collab-list::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
 }
 
-@media (min-width: 1000px) {
-    .collab-list { grid-template-columns: repeat(5, minmax(160px, 1fr)); }
+.collab-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .collab-logo {
@@ -397,6 +408,30 @@ body, p {
 }
 
 .collab-item:hover .collab-logo { opacity: 1; }
+
+/* Marquee animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover for better UX */
+.collab-marquee-wrapper:hover .collab-list {
+    animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (min-width: 700px) {
+    .collab-list { gap: 60px; }
+}
+
+@media (min-width: 1000px) {
+    .collab-list { gap: 80px; }
+}
 
 /* Packages */
 .packages { padding: 80px 0 80px; }
@@ -735,7 +770,7 @@ body, p {
 }*/
 
 /* Gallery */
-.gallery { padding: 100px 0 100px; background: #ECFEFF; }
+.gallery { padding: 100px 100px 100px; background: #ECFEFF; }
 .gallery__header { text-align: center; margin-bottom: 28px; }
 
 .gallery-grid { list-style:none; padding:0; margin:0; display:grid; grid-template-columns: 1fr; gap: 16px; }
@@ -746,7 +781,7 @@ body, p {
 }
 
 .gallery-item { position: relative; }
-.gallery-img { width:100%; height:100%; object-fit: cover; display:block; border-radius: 16px; box-shadow: 0 10px 24px rgba(15,23,42,0.08); }
+.gallery-img { width:100%; height:80%; object-fit: cover; display:block; border-radius: 0px; box-shadow: 0 0px 0px rgba(15,23,42,0.08); }
 
 /* Footer */
 .footer {
@@ -904,6 +939,82 @@ body, p {
 .footer__social-icon {
     font-size: 18px;
 }
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------
+   Responsive Typography & Layout tweaks
+   ------------------------------------------------------------------*/
+
+/* Phones (≤ 767px) -------------------------------------------------*/
+@media (max-width: 767px) {
+    /* Typography scale down */
+    h1, .heading-h1 {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    h2, .heading-h2 {
+        font-size: 24px;
+        line-height: 34px;
+    }
+    h3, .heading-h3 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .body-large, p.large {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    body, p, .body-small {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    /* Spacing adjustments */
+    .site-header .container {
+        gap: 12px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    .hero {
+        padding: 40px 0 16px;
+    }
+
+    .services {
+        padding: 32px 0;
+    }
+}
+
+/* Tablets (768px‒999px) ------------------------------------------*/
+@media (min-width: 768px) and (max-width: 999px) {
+    h1, .heading-h1 {
+        font-size: 40px;
+        line-height: 52px;
+    }
+    h2, .heading-h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    h3, .heading-h3 {
+        font-size: 24px;
+        line-height: 34px;
+    }
+}
+
+/* Ensure all images never overflow their parent */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ------------------------------------------------------------------*/
 
 
 
