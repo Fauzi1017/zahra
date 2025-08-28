@@ -211,7 +211,7 @@ body, p { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 26px
 }
 
 /* Collaborators */
-.collaborators { padding: 100px 0 100px; }
+.collaborators { padding: 0px 0 100px; }
 
 .collab-marquee-wrapper {
     overflow: hidden;
