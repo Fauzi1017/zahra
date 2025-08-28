@@ -95,6 +95,21 @@
         }
         animate();
     });
+
+    // Navigation active state management
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav__link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
+    });
     </script>
     <!-- End Collaborators Section -->
 
@@ -164,7 +179,7 @@
     <!-- End Paket Umroh Section -->
 
     <!-- Our Service Section -->
-    <section class="services" aria-labelledby="services-title">
+    <section id="fasilitas" class="services" aria-labelledby="services-title">
         <div class="container services__grid">
             <div class="services__media">
                 <div class="services-media-card">
@@ -205,7 +220,7 @@
                             <div class="card-testimonial">
                                   <div class="testimonial">
                                         <div class="rating-and-avatar">
-                                              <img class="a-muslim-man-preparing-to-go-t" alt="" src="assets/Images/Kata Mereka/1.jpg  ">
+                                              <img class="a-muslim-man-preparing-to-go-t" alt="" src="assets/Images/Kata Mereka/1.jpg">
                                               
                                               <div class="tag">
                                                     <img class="star-icon" alt="" src="assets/Images/Icon/star.svg">
@@ -273,7 +288,7 @@
                             <div class="card-testimonial">
                                   <div class="testimonial">
                                         <div class="rating-and-avatar">
-                                              <img class="a-muslim-man-preparing-to-go-t" alt="" src="assets/Images/Kata Mereka/Hajj.jpg">
+                                              <img class="a-muslim-man-preparing-to-go-t" alt="" src="assets/Images/Kata Mereka/5.jpg">
                                               
                                               <div class="tag">
                                                     <img class="star-icon" alt="" src="assets/Images/Icon/star.svg">
