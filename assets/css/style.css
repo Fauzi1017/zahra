@@ -294,8 +294,25 @@ body, p { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 26px
 .collab-logo {
     max-width: 160px;
     height: auto;
-    opacity: 0.9;
-    transition: opacity 0.2s ease;
+    opacity: 1;
+    transition: opacity 0.1s ease;
+    filter: none;
+}
+
+/* Remove dots/separators from collaborator logos */
+.collab-logo::before,
+.collab-logo::after {
+    display: none !important;
+}
+
+.collab-logo * {
+    display: none !important;
+}
+
+.collab-logo {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 .collab-item:hover .collab-logo { opacity: 1; }
 .collab-marquee-wrapper:hover .collab-list { animation-play-state: paused; }
