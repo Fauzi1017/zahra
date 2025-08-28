@@ -10,9 +10,12 @@
     <header class="site-header">
         <div class="container">
             <a href="#" class="brand">
-                <img src="assets/Images/LOGO.png" alt="Zahra Amanah Wisata" class="brand__logo">
+                <img src="assets/Images/LOGO.png" alt="Zahra Amanah Wisata" class="brand__logo" height="48px">
             </a>
-            <nav class="nav" aria-label="Utama">
+            <button class="nav-toggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="primary-navigation" height="64px" width="64px">
+                <img src="assets/Images/Icon/Menu.svg" alt="Menu" class="nav-toggle__icon">
+            </button>
+            <nav class="nav" aria-label="Utama" id="primary-navigation">
                 <ul class="nav__list">
                     <li><a href="#" class="nav__link active">Home</a></li>
                     <li><a href="#tentang" class="nav__link">Tentang Kami</a></li>
@@ -26,6 +29,86 @@
             </div>
         </div>
     </header>
+    <style>
+    @media (max-width: 833px) {
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            gap: 16px;
+        }
+        .brand__logo {
+            height: 48px;
+            width: auto;
+            max-width: 140px;
+        }
+        .nav__list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            background: #FFFFFF;
+            border-top: 1px solid rgba(15, 23, 42, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px 24px;
+            gap: 0;
+            z-index: 100;
+        }
+        .nav__list.active {
+            display: flex;
+        }
+        .nav__list li {
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+        }
+        .nav__list li:last-child {
+            border-bottom: none;
+        }
+        .nav__link {
+            display: block;
+            padding: 16px 0;
+        }
+        .header-actions {
+            display: none;
+        }
+        .nav-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 44px;
+            height: 44px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: auto;
+        }
+        .nav-toggle__icon {
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s;
+        }
+    }
+    @media (min-width: 834px) {
+        .nav-toggle {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+    // Mobile nav toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navList = document.querySelector('.nav__list');
+        navToggle?.addEventListener('click', function() {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            navList.classList.toggle('active');
+        });
+    });
+    </script>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -213,7 +296,7 @@
           <div class="section-5">
                 <div class="title">
                       <div class="apa-kata-mereka">Apa kata mereka tentang kami</div>
-                      <div class="kami-memiliki-lebih">Kami memiliki lebih dari 10,000,000 Customer</div>
+                      <div class="kami-memiliki-lebih">Kami telah mengantarkan 100,000+ jamaah ke Mekkah dan Madinah</div>
                 </div>
                 <div class="parent">
                       <div class="div">
@@ -358,7 +441,7 @@
     
     <!-- Gallery Section -->
     <section id="galeri" class="gallery" aria-labelledby="gallery-title" style="background-color: var(--secondary-10); padding: 100px 0px 100px;">
-        <div class="container" style="background-color: var(--secondary-10);">
+        <div class="container";">
             <header class="gallery__header">
                 <h2 id="gallery-title" class="heading-h1" style="margin:0;">Galeri Foto Kegiatan</h2>
                 <p class="body-large" style="color:#334155; margin-top:8px;">Kami memberikan kenyamanan bagi pelanggan kami, dengan berbagai fasilitas yang kami berikan</p>
